@@ -22,18 +22,20 @@ mcp.on('exit', (code, signal) => {
   console.log(`MCP Server process exited with code ${code} and signal ${signal}`);
 });
 
-// Send a ListTools request after a short delay to allow server to initialize
+// Send a JSON-RPC request to list tools
 setTimeout(() => {
   const request = {
-    mcp_version: '1.0',
-    request_id: '123',
-    type: 'ListTools',
-    params: {},
+    jsonrpc: "2.0",
+    id: 1,
+    method: "tools/list",
+    params: {}
   };
   if (mcp.stdin.writable) {
     mcp.stdin.write(JSON.stringify(request) + '\n');
-    mcp.stdin.end();
+    setTimeout(() => {
+      mcp.kill('SIGTERM');
+    }, 2000);
   } else {
     console.error('MCP Server stdin not writable.');
   }
-}, 5000);
+}, 1000);

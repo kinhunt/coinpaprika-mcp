@@ -485,19 +485,9 @@ class CoinPaprikaMCPServer {
   }
 
   async run() {
-    await new Promise(resolve => setTimeout(resolve, 1000));
     const transport = new StdioServerTransport();
     await this.server.connect(transport);
-    console.log('Coinpaprika MCP Server running on stdio');
-    // Keep the server running by sending a heartbeat
-    setInterval(() => {
-      // Send an empty message to keep the connection alive
-      // This is a workaround as the SDK does not expose a direct send method on the server instance
-      // In a real scenario, you would send actual MCP messages here.
-      process.stdout.write(JSON.stringify({ mcp_version: '1.0', type: 'Heartbeat', params: {} }) + '\n');
-    }, 5000);
-    // Unref stdin to allow the process to exit if there are no other active handles
-    process.stdin.unref();
+    console.error('Coinpaprika MCP Server running on stdio');
   }
 }
 
