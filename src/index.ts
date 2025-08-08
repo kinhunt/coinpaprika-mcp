@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import * as readline from 'readline';
 import {
   ListToolsRequestSchema,
   CallToolRequestSchema,
   InitializeRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
-import axios, { type AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 interface CoinPaprikaClient {
@@ -104,7 +103,7 @@ class CoinPaprikaMCPServer {
         },
         serverInfo: {
           name: 'coinpaprika-mcp-server',
-          version: '1.1.3',
+          version: '1.1.4',
         },
       };
     });
@@ -512,8 +511,8 @@ async function main() {
   await server.run();
 }
 
-// Check if this is the main module (ES module equivalent)
-if (import.meta.url === `file://${process.argv[1]}`) {
+// Check if this is the main module (CommonJS equivalent)
+if (require.main === module) {
   main().catch((error) => {
     console.error('Fatal error in main():', error);
     process.exit(1);
