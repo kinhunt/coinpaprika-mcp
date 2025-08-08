@@ -5,6 +5,7 @@ import * as readline from 'readline';
 import {
   ListToolsRequestSchema,
   CallToolRequestSchema,
+  InitializeRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
 import axios, { type AxiosInstance } from 'axios';
 import { HttpsProxyAgent } from 'https-proxy-agent';
@@ -94,6 +95,20 @@ class CoinPaprikaMCPServer {
   }
 
   private setupHandlers() {
+    // Handle initialization
+    this.server.setRequestHandler(InitializeRequestSchema, async (request) => {
+      return {
+        protocolVersion: '2024-11-05',
+        capabilities: {
+          tools: {},
+        },
+        serverInfo: {
+          name: 'coinpaprika-mcp-server',
+          version: '1.1.3',
+        },
+      };
+    });
+
     this.server.setRequestHandler(ListToolsRequestSchema, async () => {
       return {
         tools: [
