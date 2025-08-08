@@ -484,6 +484,7 @@ class CoinPaprikaMCPServer {
   }
 
   async run() {
+    await new Promise(resolve => setTimeout(resolve, 1000));
     const transport = new StdioServerTransport();
     await this.server.connect(transport);
     console.error('Coinpaprika MCP Server running on stdio');
