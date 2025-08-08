@@ -1,0 +1,56 @@
+{
+  "name": "coinpaprika-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for accessing cryptocurrency prices using Coinpaprika API",
+  "main": "build/index.js",
+  "bin": {
+    "coinpaprika-mcp": "build/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node --esm src/index.ts",
+    "start": "node build/index.js",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinhunt/coinpaprika-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "cryptocurrency",
+    "coinpaprika",
+    "bitcoin",
+    "ethereum",
+    "model-context-protocol",
+    "claude",
+    "ai",
+    "llm"
+  ],
+  "author": "kinhunt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kinhunt/coinpaprika-mcp/issues"
+  },
+  "homepage": "https://github.com/kinhunt/coinpaprika-mcp#readme",
+  "files": [
+    "build/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.2",
+    "axios": "^1.11.0",
+    "https-proxy-agent": "^7.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
