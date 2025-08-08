@@ -35,19 +35,19 @@ A Model Context Protocol (MCP) server that provides access to cryptocurrency mar
 The easiest way to use this MCP server is with `npx`:
 
 ```bash
-npx @kinhunt/coinpaprika-mcp
+npx coinpaprika-mcp
 ```
 
 ### Global Installation
 
 ```bash
-npm install -g @kinhunt/coinpaprika-mcp
+npm install -g coinpaprika-mcp
 ```
 
 ### Local Installation
 
 ```bash
-npm install @kinhunt/coinpaprika-mcp
+npm install coinpaprika-mcp
 ```
 
 ## Usage
@@ -56,14 +56,14 @@ npm install @kinhunt/coinpaprika-mcp
 
 #### Direct execution
 ```bash
-npx @kinhunt/coinpaprika-mcp
+npx coinpaprika-mcp
 ```
 
 #### With proxy support
 ```bash
-PROXY_URL=http://localhost:9080 npx @kinhunt/coinpaprika-mcp
+PROXY_URL=http://localhost:9080 npx coinpaprika-mcp
 # or
-HTTP_PROXY=http://localhost:9080 npx @kinhunt/coinpaprika-mcp
+HTTP_PROXY=http://localhost:9080 npx coinpaprika-mcp
 ```
 
 ### MCP Client Configuration
@@ -84,7 +84,7 @@ To use this server with Claude Desktop, add the following configuration to your 
   "mcpServers": {
     "coinpaprika": {
       "command": "npx",
-      "args": ["@kinhunt/coinpaprika-mcp"],
+      "args": ["coinpaprika-mcp"],
       "env": {
         "PROXY_URL": "http://localhost:9080"
       }
@@ -110,7 +110,7 @@ To use this server with Claude Desktop, add the following configuration to your 
   "mcpServers": {
     "coinpaprika": {
       "command": "npx",
-      "args": ["@kinhunt/coinpaprika-mcp"],
+      "args": ["coinpaprika-mcp"],
       "env": {
         "PROXY_URL": "http://localhost:9080"
       }
@@ -220,10 +220,10 @@ Search for coins related to "ethereum"
 
 ```bash
 # Using PROXY_URL
-PROXY_URL=http://proxy.company.com:8080 npx @kinhunt/coinpaprika-mcp
+PROXY_URL=http://proxy.company.com:8080 npx coinpaprika-mcp
 
 # Using HTTP_PROXY
-HTTP_PROXY=http://proxy.company.com:8080 npx @kinhunt/coinpaprika-mcp
+HTTP_PROXY=http://proxy.company.com:8080 npx coinpaprika-mcp
 ```
 
 ## API Information
@@ -259,7 +259,7 @@ npm run dev
 
 ```bash
 # Test the server with a simple client
-npx @modelcontextprotocol/inspector @kinhunt/coinpaprika-mcp
+npx @modelcontextprotocol/inspector coinpaprika-mcp
 ```
 
 ## Troubleshooting
@@ -283,7 +283,7 @@ npx @modelcontextprotocol/inspector @kinhunt/coinpaprika-mcp
 Run with debug logging:
 
 ```bash
-DEBUG=* npx @kinhunt/coinpaprika-mcp
+DEBUG=* npx coinpaprika-mcp
 ```
 
 ## Examples
