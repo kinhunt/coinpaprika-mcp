@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import * as readline from 'readline';
 import {
   ListToolsRequestSchema,
   CallToolRequestSchema,
@@ -489,7 +490,14 @@ class CoinPaprikaMCPServer {
     await this.server.connect(transport);
     console.log('Coinpaprika MCP Server running on stdio');
     // Keep the server running by listening to stdin
-    process.stdin.resume();
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+      terminal: false
+    });
+    rl.on('line', (line) => {
+      // Do nothing, just keep the process alive
+    });
   }
 }
 
