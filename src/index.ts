@@ -488,6 +488,8 @@ class CoinPaprikaMCPServer {
     const transport = new StdioServerTransport();
     await this.server.connect(transport);
     console.log('Coinpaprika MCP Server running on stdio');
+    // Keep the server running indefinitely
+    await new Promise(() => {});
   }
 }
 
