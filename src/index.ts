@@ -489,13 +489,8 @@ class CoinPaprikaMCPServer {
     const transport = new StdioServerTransport();
     await this.server.connect(transport);
     console.log('Coinpaprika MCP Server running on stdio');
-    // Keep the server running by listening to stdin
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-      terminal: false
-    });
-    rl.on('line', (line) => {
+    // Keep the server running by listening to stdin end event
+    process.stdin.on('end', () => {
       // Do nothing, just keep the process alive
     });
   }
